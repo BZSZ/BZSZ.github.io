@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="安装hexo脚手架1npm install -g hexo-cli  创建博客项目1234hexo init someone-blog &#x2F;&#x2F;初始化cd someone-bloghexo g &#x2F;&#x2F;生成模版hexo s &#x2F;&#x2F;本地部署  选择主题1git clone git@giturl theme&#x2F;themename 修改根目录下的_config.yml中theme为themename，然后执行 12">
-<meta name="keywords" content="Hexo">
+  <meta name="description" content="this绑定规则  默认绑定 隐式绑定 被某个对象包含或拥有 显式绑定 xxx.call(yyy); new绑定 xxx = new yyy();  绑定优先级  new绑定 &amp;gt; 显式绑定 &amp;gt; 隐式绑定 &amp;gt; 默认绑定  显式绑定 &amp;gt; 隐式绑定 1234567891011121314151617function foo() &amp;#123;  console.log( this.">
+<meta name="keywords" content="This">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建以及部署">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2&#x2F;index.html">
+<meta property="og:title" content="JavaScript中的this">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;js%E4%B8%AD%E7%9A%84this&#x2F;index.html">
 <meta property="og:site_name" content="李涵的博客">
-<meta property="og:description" content="安装hexo脚手架1npm install -g hexo-cli  创建博客项目1234hexo init someone-blog &#x2F;&#x2F;初始化cd someone-bloghexo g &#x2F;&#x2F;生成模版hexo s &#x2F;&#x2F;本地部署  选择主题1git clone git@giturl theme&#x2F;themename 修改根目录下的_config.yml中theme为themename，然后执行 12">
+<meta property="og:description" content="this绑定规则  默认绑定 隐式绑定 被某个对象包含或拥有 显式绑定 xxx.call(yyy); new绑定 xxx = new yyy();  绑定优先级  new绑定 &amp;gt; 显式绑定 &amp;gt; 隐式绑定 &amp;gt; 默认绑定  显式绑定 &amp;gt; 隐式绑定 1234567891011121314151617function foo() &amp;#123;  console.log( this.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T03:41:57.715Z">
+<meta property="og:updated_time" content="2019-10-31T08:37:48.754Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/10/31/hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2/">
+<link rel="canonical" href="http://yoursite.com/2019/10/31/js%E4%B8%AD%E7%9A%84this/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>hexo搭建以及部署 | 李涵的博客</title>
+  <title>JavaScript中的this | 李涵的博客</title>
   
 
 
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E4%B8%AD%E7%9A%84this/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -199,7 +199,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hexo搭建以及部署
+          JavaScript中的this
         </h1>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 11:27:05 / 修改时间：11:41:57" itemprop="dateCreated datePublished" datetime="2019-10-31T11:27:05+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 16:30:12 / 修改时间：16:37:48" itemprop="dateCreated datePublished" datetime="2019-10-31T16:30:12+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,8 +218,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
             </span>
@@ -235,22 +235,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="安装hexo脚手架"><a href="#安装hexo脚手架" class="headerlink" title="安装hexo脚手架"></a>安装hexo脚手架</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建博客项目"><a href="#创建博客项目" class="headerlink" title="创建博客项目"></a>创建博客项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init someone-blog //初始化</span><br><span class="line">cd someone-blog</span><br><span class="line">hexo g //生成模版</span><br><span class="line">hexo s //本地部署</span><br></pre></td></tr></table></figure>
-
-<h4 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@giturl theme/themename</span><br></pre></td></tr></table></figure>
-<p>修改根目录下的_config.yml中<strong>theme</strong>为<strong>themename</strong>，然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h4 id="将本地博客上传到GitHub上"><a href="#将本地博客上传到GitHub上" class="headerlink" title="将本地博客上传到GitHub上"></a>将本地博客上传到GitHub上</h4><ul>
-<li>注册账号</li>
-<li>新建仓库，仓库名称一定是<strong>你的仓库名.github.io</strong></li>
-<li><code>Project-&gt;Setting-&gt;GitHub Pages</code>选择主题并开启GitHub Pages</li>
-<li>修改根目录下的_config.yml<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository:</span><br><span class="line">    github: https://github.com/XXXX/XXXX.github.io.git // 或者使用SSH-KEY的地址(部署时无需输入账户密码)git@github.com:XXXX</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></li>
-<li>安装依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
-<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+        <p><strong>this绑定规则</strong></p>
+<ul>
+<li>默认绑定</li>
+<li>隐式绑定 被某个对象包含或拥有</li>
+<li>显式绑定 xxx.call(yyy);</li>
+<li>new绑定 xxx = new yyy();</li>
 </ul>
+<p><strong>绑定优先级</strong></p>
+<ul>
+<li>new绑定 &gt; 显式绑定 &gt; 隐式绑定 &gt; 默认绑定</li>
+</ul>
+<p>显式绑定 &gt; 隐式绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; </span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  foo: foo </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  a: <span class="number">3</span>,</span><br><span class="line">  foo: foo </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//隐式绑定</span></span><br><span class="line">obj1.foo(); <span class="comment">// 2</span></span><br><span class="line">obj2.foo(); <span class="comment">// 3</span></span><br><span class="line"><span class="comment">//显式绑定</span></span><br><span class="line">obj1.foo.call( obj2 ); <span class="comment">// 3</span></span><br><span class="line">obj2.foo.call( obj1 ); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>new &gt; 隐式绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">this</span>.a = something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; </span><br><span class="line">  foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;</span><br><span class="line"><span class="comment">//隐式绑定</span></span><br><span class="line">obj1.foo( <span class="number">2</span> );</span><br><span class="line"><span class="built_in">console</span>.log( obj1.a ); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">//显式绑定</span></span><br><span class="line">obj1.foo.call( obj2, <span class="number">3</span> );</span><br><span class="line"><span class="built_in">console</span>.log( obj2.a ); <span class="comment">// 3</span></span><br><span class="line"><span class="comment">//new绑定</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> obj1.foo( <span class="number">4</span> ); </span><br><span class="line"><span class="built_in">console</span>.log( obj1.a ); <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log( bar.a ); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p><strong>判断this</strong><br>现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。可以按照下面的顺序来进行判断:</p>
+<ol>
+<li>函数是否在new中调用(new绑定)<br>如果是的话this绑定的是新创建的对象<br>  var bar = new foo()</li>
+<li>函数是否通过call、apply(显式绑定)或者硬绑定调用<br>如果是的话，this绑定的是指定的对象<br>  var bar = foo.call(obj2)</li>
+<li>函数是否在某个上下文对象中调用(隐式绑定)<br>如果是的话，this 绑定的是那个上 下文对象<br>  var bar = obj1.foo()</li>
+<li>如果都不是的话，使用默认绑定<br>如果在严格模式下，就绑定到undefined，否则绑定到全局对象<br>  var bar = foo()</li>
+</ol>
 
     </div>
 
@@ -260,23 +266,23 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/This/" rel="tag"># This</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/30/Immutable.js%E8%AF%A6%E8%A7%A3/" rel="next" title="Immutable.js详解">
-                  <i class="fa fa-chevron-left"></i> Immutable.js详解
+                <a href="/2019/10/31/hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2/" rel="next" title="hexo搭建以及部署">
+                  <i class="fa fa-chevron-left"></i> hexo搭建以及部署
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/10/31/js%E4%B8%AD%E7%9A%84this/" rel="prev" title="JavaScript中的this">
-                  JavaScript中的this <i class="fa fa-chevron-right"></i>
+                <a href="/2019/10/31/js%E5%B0%8F%E7%9F%A5%E8%AF%86/" rel="prev" title="js小知识">
+                  js小知识 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -316,7 +322,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装hexo脚手架"><span class="nav-number">1.</span> <span class="nav-text">安装hexo脚手架</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建博客项目"><span class="nav-number">2.</span> <span class="nav-text">创建博客项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择主题"><span class="nav-number">3.</span> <span class="nav-text">选择主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将本地博客上传到GitHub上"><span class="nav-number">4.</span> <span class="nav-text">将本地博客上传到GitHub上</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
