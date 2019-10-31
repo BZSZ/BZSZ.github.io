@@ -182,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/onKeyDown%20in%20React/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -196,7 +196,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/" class="post-title-link" itemprop="url">数组去重</a>
+            <a href="/2019/10/31/onKeyDown%20in%20React/" class="post-title-link" itemprop="url">onKeyDown in React</a>
         </h1>
 
         <div class="post-meta">
@@ -207,7 +207,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 16:39:37 / 修改时间：16:41:20" itemprop="dateCreated datePublished" datetime="2019-10-31T16:39:37+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:09:42 / 修改时间：18:10:02" itemprop="dateCreated datePublished" datetime="2019-10-31T18:09:42+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,19 +232,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>数组去重</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r,</span><br><span class="line">    arr = [<span class="string">'apple'</span>, <span class="string">'strawberry'</span>, <span class="string">'banana'</span>, <span class="string">'pear'</span>, <span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'orange'</span>, <span class="string">'strawberry'</span>];</span><br><span class="line">r = arr.filter(<span class="function">(<span class="params">element, index, self</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> self.indexOf(element) === index;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r.toString());</span><br></pre></td></tr></table></figure>
-<p><strong>删除空字符</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">''</span>, <span class="string">'B'</span>, <span class="literal">null</span>, <span class="literal">undefined</span>, <span class="string">'C'</span>, <span class="string">'  '</span>];</span><br><span class="line"><span class="keyword">var</span> r = arr.filter(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s &amp;&amp; s.trim(); <span class="comment">// IE9以下的版本没有trim()方法</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r.toString());</span><br><span class="line"><span class="comment">// ['A', 'B', 'C']</span></span><br></pre></td></tr></table></figure>
-<p><strong>数字转字符串</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">arr.map(<span class="built_in">String</span>);</span><br><span class="line"><span class="comment">// ['1', '2', '3', '4', '5', '6', '7', '8', '9']</span></span><br></pre></td></tr></table></figure>
-<p><strong>字符串转数字</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>];</span><br><span class="line"><span class="keyword">let</span> r = arr.map(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> x.charCodeAt() - <span class="string">'0'</span>.charCodeAt();</span><br><span class="line">&#125;);</span><br><span class="line">r; <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<p><strong>数组排序</strong></p>
+          <p><strong>How to user onKeyDown in React</strong></p>
+<p><strong>前提代码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 添加事件监听</span></span><br><span class="line">componentWillMount() &#123;</span><br><span class="line">  <span class="built_in">document</span>.addEventListener(<span class="string">"keydown"</span>, <span class="keyword">this</span>.onKeyDown&#125;</span><br><span class="line"></span><br><span class="line">componentWillUnmount() &#123;</span><br><span class="line">  <span class="built_in">document</span>.removeEventListener(<span class="string">"keydown"</span>, <span class="keyword">this</span>.onKeyDown&#125;      </span><br><span class="line"></span><br><span class="line">onKeyDown = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.keyCode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>div 中使用</strong></p>
 <blockquote>
-<p>sort: 随机选取的a,b两个值通常情况下，都是a的值比b小，<br>  排序规则是根据返回值，小于0则升序, 大于0则降序，<br>  第一参数a， 第二参数b ——  a-b升序 b-a降序。<br>  会对当前Array修改</p>
+<p>应该使用tabIndex属性来侦听React中div上的onKeyDown事件, 设置tabIndex =“0”会激活你的处理程序</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="comment">// 升序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [1, 2, 10, 20]</span></span><br><span class="line"><span class="comment">// 降序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [20, 10, 2, 1]</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;div onKeyDown={this.onKeyDown} tabIndex=&quot;0&quot;&gt;&lt;/div&gt;</code></p>
+<p><strong>button 中使用</strong><br><code>&lt;button onKeyDown={this.onKeyDown}&gt;&lt;/button&gt;</code></p>
+
       
     </div>
 
@@ -263,7 +260,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/react%E4%B8%ADonClick%E4%BA%8B%E4%BB%B6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/%E8%87%AA%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -277,7 +274,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/react%E4%B8%ADonClick%E4%BA%8B%E4%BB%B6/" class="post-title-link" itemprop="url">react中onClick事件</a>
+            <a href="/2019/10/31/%E8%87%AA%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">自执行函数</a>
         </h1>
 
         <div class="post-meta">
@@ -288,7 +285,249 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 16:38:39 / 修改时间：16:39:16" itemprop="dateCreated datePublished" datetime="2019-10-31T16:38:39+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:06:14 / 修改时间：18:07:01" itemprop="dateCreated datePublished" datetime="2019-10-31T18:06:14+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>自执行匿名函数</strong></p>
+<blockquote>
+<p>常见格式：</p>
+</blockquote>
+<p><code>(function(){ /* code */ })();</code></p>
+<blockquote>
+<p>解释：</p>
+</blockquote>
+<p>包围函数<code>(function(){ /* code */ })</code>的第一对括号向脚本返回未命名的函数，随后一对空括号立即执行返回的未命名函数，括号内为匿名函数的参数。</p>
+<blockquote>
+<p>作用：</p>
+</blockquote>
+<p>可以用它创建命名空间，只要把自己的所有代码都写在这个特殊的函数包装内，那么外部就不能访问，除非你允许（变量前加上window，这样该函数后变量就成为全局）。各JavaScript库的代码也基本上是这种组织形式。<br>总结一下，执行函数的作用主要为匿名和自动执行，代码在被解释时就已经在运行了。</p>
+<p>写法总结：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;());</span><br><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;();</span><br><span class="line">~<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;();</span><br><span class="line">-<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;();</span><br><span class="line">+<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;();</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/dva%20-%20model%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/dva%20-%20model%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">dva - model应用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 18:05:37 / 修改时间：18:05:59" itemprop="dateCreated datePublished" datetime="2019-10-31T18:05:37+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> <strong>model无try catch, 无load</strong></p>
+<blockquote>
+<p>成功会输出转派成功<br>失败，不会输出转派成功，后面的代码不会运行，同时页面弹出error.message<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//页面调用</span></span><br><span class="line"> &#123;</span><br><span class="line">   <span class="keyword">await</span> <span class="keyword">this</span>.props.dispatch(&#123; <span class="attr">type</span>: <span class="string">'publicCase/submitTranslate'</span>, <span class="attr">payload</span>: params &#125;);</span><br><span class="line">   message.success(<span class="string">'成功'</span>);</span><br><span class="line">   xxxx...(其他操作\</span><br><span class="line">   </span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// model  </span></span><br><span class="line">*submitTranslate(&#123; <span class="attr">payload</span>: params &#125;, &#123; call &#125;) &#123;</span><br><span class="line">   <span class="keyword">yield</span> call(submitTranslate, params);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p> <strong>model无try catch, 有load</strong></p>
+<blockquote>
+<p>成功会输出转派成功, load success<br>失败，不会输出转派成功，后面的代码不会运行，同时页面弹出error.message, 页面一直loading状态<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//页面调用</span></span><br><span class="line"> &#123;</span><br><span class="line">   <span class="keyword">await</span> <span class="keyword">this</span>.props.dispatch(&#123; <span class="attr">type</span>: <span class="string">'publicCase/submitTranslate'</span>, <span class="attr">payload</span>: params &#125;);</span><br><span class="line">   message.success(<span class="string">'成功'</span>);</span><br><span class="line">   xxxx...(其他操作)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// model  </span></span><br><span class="line">*submitTranslate(&#123; <span class="attr">payload</span>: params &#125;, &#123; call &#125;) &#123;</span><br><span class="line">   <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'app/loadStart'</span> &#125;);</span><br><span class="line">   <span class="keyword">yield</span> call(submitTranslate, params);</span><br><span class="line">   <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'app/loadSuccess'</span> &#125;);</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p> <strong>model有try catch, 有load</strong></p>
+<blockquote>
+<p>成功会输出转派成功, load success<br>失败，会输出成功，后面的代码继续正常运行，同时页面弹出error.message, 页面正常显示<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//页面调用</span></span><br><span class="line"> &#123;</span><br><span class="line">   <span class="keyword">await</span> <span class="keyword">this</span>.props.dispatch(&#123; <span class="attr">type</span>: <span class="string">'publicCase/submitTranslate'</span>, <span class="attr">payload</span>: params &#125;);</span><br><span class="line">   message.success(<span class="string">'成功'</span>);</span><br><span class="line">   xxxx...(其他操作)</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">// model  </span></span><br><span class="line">*submitTranslate(&#123; <span class="attr">payload</span>: params &#125;, &#123; call &#125;) &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'app/loadStart'</span> &#125;);</span><br><span class="line">    <span class="keyword">yield</span> call(submitTranslate, params);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    message.error(e.message, <span class="number">5</span>);</span><br><span class="line">  &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'app/loadSuccess'</span> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;,</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/antd%20-%20Table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/antd%20-%20Table/" class="post-title-link" itemprop="url">antd - Table</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 18:04:58 / 修改时间：18:21:09" itemprop="dateCreated datePublished" datetime="2019-10-31T18:04:58+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>table</strong></p>
+<blockquote>
+<p>columns的render: 可以加一系列操作和控制在某列上</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">render: <span class="function">(<span class="params">text, record</span>) =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&#123;&#123;</span> <span class="attr">pathname:</span> '/<span class="attr">caseDetail</span>' &#125;&#125;&gt;</span>&#123; text &#125;<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>table 实例<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rowSelection = &#123;</span><br><span class="line">  selectedRowKeys, <span class="comment">// 一个由rowKey组成的数组</span></span><br><span class="line">  onChange: <span class="keyword">this</span>.submissionChange,</span><br><span class="line">  <span class="comment">// 控制是否可以被点击</span></span><br><span class="line">  getCheckboxProps: <span class="function"><span class="params">record</span> =&gt;</span> (&#123;</span><br><span class="line">    disabled: !canEdit || isNull(record.content) || isBlackFormSaved,</span><br><span class="line">  &#125;),</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"> &lt;Table</span><br><span class="line">  rowKey=&#123;record =&gt; record.bizNo&#125;</span><br><span class="line">  bordered</span><br><span class="line">  dataSource=&#123;dataSource&#125;</span><br><span class="line">  columns=&#123;columns&#125;</span><br><span class="line">  loading=&#123;loading&#125;</span><br><span class="line">  rowSelection=&#123;rowSelection&#125;</span><br><span class="line">  expandedRowRender=&#123;record =&gt; record.conten&#125;</span><br><span class="line">  onRow=&#123;record =&gt; <span class="function">(<span class="params">&#123; onClick: (</span>) =&gt;</span> <span class="keyword">this</span>.onRowClick(record) &#125;)&#125;</span><br><span class="line">  pagination=&#123;&#123;</span><br><span class="line">    current,</span><br><span class="line">    total,</span><br><span class="line">    showTotal: <span class="function"><span class="params">totalItem</span> =&gt;</span> <span class="string">`共 <span class="subst">$&#123;totalItem&#125;</span> 条`</span>,</span><br><span class="line">    pageSize,</span><br><span class="line">    showSizeChanger: <span class="literal">false</span>,</span><br><span class="line">    onChange: <span class="function"><span class="params">page</span> =&gt;</span> onTableChange(page),</span><br><span class="line">  &#125;&#125; /&gt;</span><br></pre></td></tr></table></figure><br>table里没有唯一的值设置rowKey, 设置index有warning 错误 给每一列手动加key, 变量名必须是key，同时不用在设置rowKey</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dataSource=&#123;dataSource.map(<span class="function">(<span class="params">item, index</span>) =&gt;</span> (&#123; ...item, <span class="attr">key</span>: index + <span class="number">1</span> &#125;))&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置scroll=&#123;&#123;y: 240&#125;&#125;, 表头表列不对齐给每列手动添加width, 此做法会让每列固定width,不会让表列自适应</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/antd%20-%20Upload/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/antd%20-%20Upload/" class="post-title-link" itemprop="url">antd - Upload</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 18:04:17 / 修改时间：18:04:44" itemprop="dateCreated datePublished" datetime="2019-10-31T18:04:17+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,38 +553,18 @@
 
       
           <blockquote>
-<p>无() 无箭头</p>
+<p>Upload使用</p>
 </blockquote>
-<ul>
-<li>不会立即执行</li>
-<li>点击1会报错，this.state不存在，因为this指向window. Cannot read property ‘state’ of undefined</li>
-<li>点击2正确，方法使用箭头函数，指向当前，所以运行正确</li>
-<li>点击4，5，都显示的绑定了this，运行正确<blockquote>
-<p>带() 无箭头</p>
+<p><strong>props</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> uploadProps = &#123;</span><br><span class="line">  accept: <span class="string">'xxxxxx'</span>,</span><br><span class="line">  showUploadList: <span class="literal">false</span>,</span><br><span class="line">  beforeUpload: <span class="keyword">this</span>.handleUpload,</span><br><span class="line">  customRequest: <span class="keyword">this</span>.customRequest,</span><br><span class="line">&#125;;</span><br><span class="line">handleUpload = <span class="keyword">async</span> (file) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!file) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">  formData.append(<span class="string">'file'</span>, file);</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.props.dispatch(&#123; <span class="attr">type</span>:   <span class="string">'chargeAdd/uploadExcel'</span>, <span class="attr">payload</span>: formData &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// props中没有action 就需要定义customRequest函数</span></span><br><span class="line">customRequest = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>beforeUpload 返回false, 如果设置action会请求action, 未设置会请求本域名</p>
 </blockquote>
-</li>
-<li>立即执行</li>
-<li>立即执行11，运行正确。页面渲染前执行，this指向自己</li>
-<li>立即执行22，运行正确</li>
-<li>立即执行33，运行正确</li>
-<li>渲染一次就会立即执行一次<blockquote>
-<p>有箭头</p>
+<p>使用customRequest, 通过覆盖默认的上传行为，可以自定义自己的上传实现</p>
+<blockquote>
+<p>使用customRequest，点击取消报错：rc-upload reqs[uid].abort is not a function</p>
 </blockquote>
-<ul>
-<li>不会立即执行</li>
-<li>点击111，222，333运行正确，this绑定正确</li>
-<li>点击1111没有任何反应，只是定义没有调用<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      content: <span class="string">"rrrrr"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.clickEventBind = <span class="keyword">this</span>.clickEventBind.bind(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clickEvent() &#123;</span><br><span class="line">    alert(<span class="string">"eeee"</span>);</span><br><span class="line">    alert(<span class="keyword">this</span>.state.content);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clickEventBind() &#123;</span><br><span class="line">    alert(<span class="string">"eeee"</span>);</span><br><span class="line">    alert(<span class="keyword">this</span>.state.content);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clickEvent2 = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    alert(<span class="string">"eeee"</span>);</span><br><span class="line">    alert(<span class="keyword">this</span>.state.content);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  clickEventParams(params) &#123;</span><br><span class="line">    alert(params);</span><br><span class="line">    alert(<span class="string">"eeee"</span>);</span><br><span class="line">    alert(<span class="keyword">this</span>.state.content);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> params = <span class="string">"i am params"</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;Button onClick=&#123;<span class="keyword">this</span>.clickEvent&#125;&gt;点击<span class="number">1</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button onClick=&#123;this.clickEvent()&#125;&gt;点击11&lt;/</span>Button&gt;</span><br><span class="line">         &lt;Button onClick=&#123;() =&gt; <span class="keyword">this</span>.clickEvent()&#125;&gt;点击<span class="number">111</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">         &lt;Button onClick=&#123;() =&gt; this.clickEvent&#125;&gt;点击1111&lt;/</span>Button&gt;</span><br><span class="line">         </span><br><span class="line">        &lt;Button onClick=&#123;<span class="keyword">this</span>.clickEvent2&#125;&gt;点击<span class="number">2</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button onClick=&#123;this.clickEvent2()&#125;&gt;点击22&lt;/</span>Button&gt;</span><br><span class="line">        &lt;Button onClick=&#123;() =&gt; <span class="keyword">this</span>.clickEvent2()&#125;&gt;点击<span class="number">222</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        </span></span><br><span class="line"><span class="regexp">        &lt;Button onClick=&#123;this.clickEventParmas&#125;&gt;点击3&lt;/</span>Button&gt;</span><br><span class="line">        &lt;Button onClick=&#123;<span class="keyword">this</span>.clickEventParmas(params)&#125;&gt;点击<span class="number">33</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button onClick=&#123;() =&gt; this.clickEventParmas(params)&#125;&gt;点击333&lt;/</span>Button&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;Button onClick=&#123;<span class="keyword">this</span>.clickEvent.bind(<span class="keyword">this</span>)&#125;&gt;点击<span class="number">4</span>&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Button onClick=&#123;this.clickEventBind&#125;&gt;点击5&lt;/</span>Button&gt;</span><br><span class="line">    </span><br><span class="line">      &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>如何使用？</strong></p>
-<ol>
-<li>没有参数，用this.xxxx, xxx是箭头函数，内部可以访问this</li>
-<li>没有参数，用this.xxxx, xxx是普通函数，在构造函数里绑定this</li>
-<li>有参数，用() =&gt; this.yyyy(), yyyy是普通函数或箭头函数都可以，因为已经绑定了this</li>
-</ol>
+<p>customRequest 不支持async函数<br><strong>参考文档</strong><br><code>https://github.com/react-component/upload/issues/89</code><br><code>https://github.com/ant-design/ant-design/issues/10122</code></p>
 
       
     </div>
@@ -365,7 +584,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E5%B0%8F%E7%9F%A5%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/dva%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -379,7 +598,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/js%E5%B0%8F%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">js小知识</a>
+            <a href="/2019/10/31/dva%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">dva基础</a>
         </h1>
 
         <div class="post-meta">
@@ -390,7 +609,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 16:36:53 / 修改时间：16:37:38" itemprop="dateCreated datePublished" datetime="2019-10-31T16:36:53+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:03:18 / 修改时间：18:03:49" itemprop="dateCreated datePublished" datetime="2019-10-31T18:03:18+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -415,16 +634,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h5 id="浅copy和深copy"><a href="#浅copy和深copy" class="headerlink" title="浅copy和深copy"></a>浅copy和深copy</h5><p>Javascript中对象都是参考类型，也就是a={a:1}; b=a; b.a=10;你发现a.a也变成10了。可变的好处是节省内存或是利用可变性做一些事情，但是，在复杂的开发中它的副作用远比好处大的多。</p>
+          <h5 id="state"><a href="#state" class="headerlink" title="state"></a><strong>state</strong></h5><p>根据我们的业务特点(主要为管理系统)，每个model我们都默认添加了loading, confirmLoading, spinner属性</p>
+<h5 id="subscriptions"><a href="#subscriptions" class="headerlink" title="subscriptions"></a><strong>subscriptions</strong></h5><p>subscriptions中对路由的监听 写法太过繁琐，特别是在包含参数的情况下。我们扩展了实现了listen方法:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">subscriptions: &#123;</span><br><span class="line">  setup(&#123; dispatch, listen &#125;) &#123;</span><br><span class="line">    <span class="comment">//action为 redux action</span></span><br><span class="line">    listen(<span class="string">'/user/list'</span>, &#123; <span class="attr">type</span>: <span class="string">'fetchUsers'</span>&#125;);</span><br><span class="line">    <span class="comment">//action为 回调函数</span></span><br><span class="line">    listen(<span class="string">'/user/:id/detail'</span>, (&#123; query, params &#125;) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> id = params[<span class="number">0</span>];</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type: <span class="string">'fetchDetail'</span>,</span><br><span class="line">      payload: &#123; id &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">//支持对多个path的监听</span></span><br><span class="line">  listen(&#123;</span><br><span class="line">    <span class="string">'/user/list'</span>: <span class="function">(<span class="params">&#123; query, params &#125;</span>) =&gt;</span> &#123;&#125;,</span><br><span class="line">    <span class="string">'/user/query'</span>: <span class="function">(<span class="params">&#123; query, params &#125;</span>) =&gt;</span> &#123;&#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="effects扩展"><a href="#effects扩展" class="headerlink" title="effects扩展"></a><strong>effects扩展</strong></h5><p>dva中处理loading状态非常繁琐，而dva提供的全局loading对我们业务并不适用，因为往往一个model中，有些call请求需要loading，有些call请求又不需要loading，所以我们对effects中的saga函数进行了扩展.</p>
 <blockquote>
-<p>浅copy<br>ES6原生的assign()<br>ES5.1中对象有了freeze方法</p>
+<p>callWithLoading 调用请求时，自动处理loading状态<br>callWithConfirmLoading 调用请求时，自动处理confirmLoading状态<br>callWithSpinning 调用请求时，自动处理spinning状态</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">Object</span>.freeze(&#123;<span class="attr">a</span>:<span class="number">1</span>&#125;); </span><br><span class="line">b = a; </span><br><span class="line">b.a = <span class="number">10</span>; <span class="comment">//a.a还是1。</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>深copy</p>
-</blockquote>
+<p>在我们的业务中，call请求成功或者失败后，往往需要弹出对应的业务提示框(消息内容有时候不是由后端提供)，故我们在上面的函数中，都提供额外的参数，支持请求结果的消息框处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求开始前会将loading = true, </span></span><br><span class="line"><span class="comment">// 请求结束后，将loading = false</span></span><br><span class="line"><span class="keyword">const</span> users = yeild callWithLoading(service.getList, params);</span><br><span class="line"><span class="keyword">const</span> users = yeild callWithLoading(service.getList, params, &#123;<span class="attr">successMsg</span>:<span class="string">'加载用户成功'</span>,<span class="attr">errorMsg</span>:<span class="string">'加载用户失败'</span>&#125;);</span><br></pre></td></tr></table></figure>
+<p>effects中经常需要需要更新state, 但是往往又不想为每次修改都命名一个reducer函数，所以扩展了update方法，调用updateState reducer来更新state</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新当前model的state</span></span><br><span class="line"><span class="keyword">yield</span> update(&#123; users &#125;)</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">yield</span> put(&#123; <span class="attr">type</span>: <span class="string">'updateState'</span>, &#123; users &#125; &#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="reducers扩展"><a href="#reducers扩展" class="headerlink" title="reducers扩展"></a><strong>reducers扩展</strong></h5><p>为了配合effects中的扩展，实现了如下方法<br>showLoading,hideLoading… 等加载状态控制方法</p>
 <ul>
-<li>jQuery用法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oldValue = &#123; <span class="comment">/* 默认值 */</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> config = $.extend(&#123;&#125;, oldValue, oldValue); <span class="comment">//initValue是自定义值</span></span><br><span class="line"><span class="keyword">var</span> config = $.extend(<span class="literal">true</span>, &#123;&#125;, oldValue, oldValue); <span class="comment">// 如果对象是多层的，就用到deep-copy了</span></span><br></pre></td></tr></table></figure></li>
+<li>updateState 直接更新state数据</li>
+<li>resetState 重置state数据(可能是假的)</li>
 </ul>
 
       
@@ -445,7 +669,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E4%B8%AD%E7%9A%84this/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/antd%20-%20TextArea&Input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -459,7 +683,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/js%E4%B8%AD%E7%9A%84this/" class="post-title-link" itemprop="url">JavaScript中的this</a>
+            <a href="/2019/10/31/antd%20-%20TextArea&Input/" class="post-title-link" itemprop="url">antd - TextArea&Input</a>
         </h1>
 
         <div class="post-meta">
@@ -470,7 +694,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 16:30:12 / 修改时间：16:37:48" itemprop="dateCreated datePublished" datetime="2019-10-31T16:30:12+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:02:34 / 修改时间：18:03:00" itemprop="dateCreated datePublished" datetime="2019-10-31T18:02:34+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -495,28 +719,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>this绑定规则</strong></p>
+          <p><strong>TextArea</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextArea maxLength=<span class="string">"250"</span> rows=&#123;<span class="number">6</span>&#125; style=&#123;&#123; <span class="attr">resize</span>: <span class="string">'none'</span> &#125;&#125; /&gt;)</span><br><span class="line">&lt;TextArea maxLength=<span class="string">"250"</span> autosize=&#123;&#123; <span class="attr">minRows</span>: <span class="number">6</span>, <span class="attr">maxRows</span>: <span class="number">10</span> &#125;&#125; /&gt;)</span><br></pre></td></tr></table></figure>
+<p><strong>InputNumber</strong></p>
 <ul>
-<li>默认绑定</li>
-<li>隐式绑定 被某个对象包含或拥有</li>
-<li>显式绑定 xxx.call(yyy);</li>
-<li>new绑定 xxx = new yyy();</li>
+<li>把输入的数字转化为<code>10,000.00</code>这种显示，获取value为原值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;InputNumber</span><br><span class="line">  style=&#123;&#123; <span class="attr">width</span>: <span class="string">'100%'</span> &#125;&#125;</span><br><span class="line">  placeholder=<span class="string">"请输入转账金额"</span></span><br><span class="line">  step=&#123;<span class="number">0.01</span>&#125;</span><br><span class="line">  min=&#123;<span class="number">0</span>&#125;</span><br><span class="line">  formatter=&#123;value =&gt; <span class="string">`<span class="subst">$&#123;value&#125;</span>`</span>.replace(<span class="regexp">/\B(?=(\d&#123;3&#125;)+(?!\d))/g</span>, <span class="string">','</span>)&#125;</span><br><span class="line">  parser=&#123;value =&gt; value.replace(<span class="regexp">/\$\s?|(,*)/g</span>, <span class="string">''</span>)&#125; /&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p><strong>绑定优先级</strong></p>
-<ul>
-<li>new绑定 &gt; 显式绑定 &gt; 隐式绑定 &gt; 默认绑定</li>
-</ul>
-<p>显式绑定 &gt; 隐式绑定</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span>.a );</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; </span><br><span class="line">  a: <span class="number">2</span>,</span><br><span class="line">  foo: foo </span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  a: <span class="number">3</span>,</span><br><span class="line">  foo: foo </span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//隐式绑定</span></span><br><span class="line">obj1.foo(); <span class="comment">// 2</span></span><br><span class="line">obj2.foo(); <span class="comment">// 3</span></span><br><span class="line"><span class="comment">//显式绑定</span></span><br><span class="line">obj1.foo.call( obj2 ); <span class="comment">// 3</span></span><br><span class="line">obj2.foo.call( obj1 ); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<p>new &gt; 隐式绑定</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">something</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">this</span>.a = something;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123; </span><br><span class="line">  foo: foo</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;&#125;;</span><br><span class="line"><span class="comment">//隐式绑定</span></span><br><span class="line">obj1.foo( <span class="number">2</span> );</span><br><span class="line"><span class="built_in">console</span>.log( obj1.a ); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">//显式绑定</span></span><br><span class="line">obj1.foo.call( obj2, <span class="number">3</span> );</span><br><span class="line"><span class="built_in">console</span>.log( obj2.a ); <span class="comment">// 3</span></span><br><span class="line"><span class="comment">//new绑定</span></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> obj1.foo( <span class="number">4</span> ); </span><br><span class="line"><span class="built_in">console</span>.log( obj1.a ); <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log( bar.a ); <span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-<p><strong>判断this</strong><br>现在我们可以根据优先级来判断函数在某个调用位置应用的是哪条规则。可以按照下面的顺序来进行判断:</p>
-<ol>
-<li>函数是否在new中调用(new绑定)<br>如果是的话this绑定的是新创建的对象<br>  var bar = new foo()</li>
-<li>函数是否通过call、apply(显式绑定)或者硬绑定调用<br>如果是的话，this绑定的是指定的对象<br>  var bar = foo.call(obj2)</li>
-<li>函数是否在某个上下文对象中调用(隐式绑定)<br>如果是的话，this 绑定的是那个上 下文对象<br>  var bar = obj1.foo()</li>
-<li>如果都不是的话，使用默认绑定<br>如果在严格模式下，就绑定到undefined，否则绑定到全局对象<br>  var bar = foo()</li>
-</ol>
 
       
     </div>
@@ -536,7 +744,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/antd%20-%20Form/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -550,7 +758,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/10/31/hexo%E6%90%AD%E5%BB%BA%E4%BB%A5%E5%8F%8A%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">hexo搭建以及部署</a>
+            <a href="/2019/10/31/antd%20-%20Form/" class="post-title-link" itemprop="url">antd - Form</a>
         </h1>
 
         <div class="post-meta">
@@ -561,99 +769,8 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 11:27:05 / 修改时间：11:41:57" itemprop="dateCreated datePublished" datetime="2019-10-31T11:27:05+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:01:43 / 修改时间：18:02:10" itemprop="dateCreated datePublished" datetime="2019-10-31T18:01:43+08:00">2019-10-31</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index">
-                    <span itemprop="name">Blog</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="安装hexo脚手架"><a href="#安装hexo脚手架" class="headerlink" title="安装hexo脚手架"></a>安装hexo脚手架</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<h4 id="创建博客项目"><a href="#创建博客项目" class="headerlink" title="创建博客项目"></a>创建博客项目</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo init someone-blog //初始化</span><br><span class="line">cd someone-blog</span><br><span class="line">hexo g //生成模版</span><br><span class="line">hexo s //本地部署</span><br></pre></td></tr></table></figure>
-
-<h4 id="选择主题"><a href="#选择主题" class="headerlink" title="选择主题"></a>选择主题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@giturl theme/themename</span><br></pre></td></tr></table></figure>
-<p>修改根目录下的_config.yml中<strong>theme</strong>为<strong>themename</strong>，然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<h4 id="将本地博客上传到GitHub上"><a href="#将本地博客上传到GitHub上" class="headerlink" title="将本地博客上传到GitHub上"></a>将本地博客上传到GitHub上</h4><ul>
-<li>注册账号</li>
-<li>新建仓库，仓库名称一定是<strong>你的仓库名.github.io</strong></li>
-<li><code>Project-&gt;Setting-&gt;GitHub Pages</code>选择主题并开启GitHub Pages</li>
-<li>修改根目录下的_config.yml<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">type: git</span><br><span class="line">repository:</span><br><span class="line">    github: https://github.com/XXXX/XXXX.github.io.git // 或者使用SSH-KEY的地址(部署时无需输入账户密码)git@github.com:XXXX</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></li>
-<li>安装依赖<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
-<li>执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/30/Immutable.js%E8%AF%A6%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
-      <meta itemprop="name" content="李涵">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="李涵的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/30/Immutable.js%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Immutable.js详解</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-10-30 16:08:46" itemprop="dateCreated datePublished" datetime="2019-10-30T16:08:46+08:00">2019-10-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-31 11:42:08" itemprop="dateModified" datetime="2019-10-31T11:42:08+08:00">2019-10-31</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -677,55 +794,195 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a><strong>定义</strong></h4><p>Immutable Data就是一旦创建，就不能再被更改的数据。对 Immutable对象的任何修改或添加删除操作都会返回一个新的 Immutable对象。</p>
-<h4 id="immutable实现原理"><a href="#immutable实现原理" class="headerlink" title="immutable实现原理"></a><strong>immutable实现原理</strong></h4><p>Immutable实现的原理是 Persistent Data Structure（持久化数据结构），也就是使用旧数据创建新数据时，要保证旧数据同时可用且不变。同时为了避免 deepCopy 把所有节点都复制一遍带来的性能损耗，Immutable 使用了 Structural Sharing（结构共享），即如果对象树中一个节点发生变化，只修改这个节点和受它影响的父节点，其它节点则进行共享。</p>
+          <p><strong>form</strong></p>
 <blockquote>
-<p>Immutable库有两个，immutable.js 和 seamless-immutable</p>
+<p>form 提交方式</p>
 </blockquote>
-<h4 id="immutable-js"><a href="#immutable-js" class="headerlink" title="immutable.js"></a><strong>immutable.js</strong></h4><p>它内部实现了一套完整的 Persistent Data Structure，还有很多易用的数据类型。像 Collection、List、Map、Set、Record、Seq。有非常全面的map、filter、groupBy、reduce、find函数式操作方法。同时 API 也尽量与 Object 或 Array 类似。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = &#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">let</span> bar = foo;</span><br><span class="line">bar.a.b = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(foo.a.b);  <span class="comment">// 打印 2</span></span><br><span class="line"><span class="built_in">console</span>.log(foo === bar);  <span class="comment">//  打印 true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 immutable.js 后</span></span><br><span class="line"><span class="keyword">import</span> Immutable <span class="keyword">from</span> <span class="string">'immutable'</span>;</span><br><span class="line">foo = Immutable.fromJS(&#123;<span class="attr">a</span>: &#123;<span class="attr">b</span>: <span class="number">1</span>&#125;&#125;);</span><br><span class="line"><span class="comment">//使用 setIn 赋值</span></span><br><span class="line">bar = foo.setIn([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="number">2</span>);</span><br><span class="line"><span class="comment">//使用 getIn 取值，打印 1</span></span><br><span class="line"><span class="built_in">console</span>.log(foo.getIn([<span class="string">'a'</span>, <span class="string">'b'</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(foo === bar);  <span class="comment">//  打印 false</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>onClick={this.saveRecord} htmlType=”button”<br>不使用默认提交，提交后不会刷新页面</li>
+<li>htmlType=”submit” form上onSubmit={}<br>默认提交方式。提交后会刷新页面，此时可以在onSubmit方法里添加event.preventDefault()组织默认提交。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;Form&gt;</span><br><span class="line">  &lt;FormItem label=<span class="string">"调查注记"</span>&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      getFieldDecorator(<span class="string">'content'</span>)(</span><br><span class="line">      (</span><br><span class="line">        &lt;Select disabled=&#123;!canEdit || isBlackFormSaved&#125; onChange=&#123;<span class="keyword">this</span>.listChange&#125;&gt;</span><br><span class="line">          &#123;</span><br><span class="line">          <span class="built_in">Object</span>.keys(blackConfigs).map(<span class="function"><span class="params">key</span> =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Option</span> <span class="attr">key</span>=<span class="string">&#123;key&#125;</span> <span class="attr">value</span>=<span class="string">&#123;key&#125;</span>&gt;</span>&#123;blackConfigs[key]&#125;<span class="tag">&lt;/<span class="name">Option</span>&gt;</span></span>&#125;</span><br><span class="line">        &lt;<span class="regexp">/Select&gt;,</span></span><br><span class="line"><span class="regexp">      )</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>FormItem&gt;</span><br><span class="line">  &lt;FormItem&gt;</span><br><span class="line">    &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.saveRecord&#125; htmlType=<span class="string">"button"</span>&gt;保存&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>FormItem&gt;</span><br><span class="line">&lt;<span class="regexp">/Form&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 
-<p><strong>说明</strong></p>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/React%20Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/React%20Router/" class="post-title-link" itemprop="url">React Router</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 18:00:28 / 修改时间：18:01:20" itemprop="dateCreated datePublished" datetime="2019-10-31T18:00:28+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h5 id="Router：-一个history对象"><a href="#Router：-一个history对象" class="headerlink" title="Router： 一个history对象"></a>Router： 一个history对象</h5><p>router（路由器）是一个 history 对象（类似于 web 浏览器中的 window.history），用于改变 URL 或者监听 URL 的变化。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">type Router = &#123;</span><br><span class="line">  transitionTo: <span class="function">(<span class="params">location: Location</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  pushState: <span class="function">(<span class="params">state: ?LocationState, pathname: Pathname | Path, query?: Query</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  replaceState: <span class="function">(<span class="params">state: ?LocationState, pathname: Pathname | Path, query?: Query</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  go(n: <span class="built_in">Number</span>) =&gt; <span class="keyword">void</span>;</span><br><span class="line">  listen(listener: RouterListener) =&gt; <span class="built_in">Function</span>;</span><br><span class="line">  match(location: Location, <span class="attr">callback</span>: RouterListener) =&gt; <span class="keyword">void</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 访问： this.router.history.go()</span></span><br></pre></td></tr></table></figure>
+<p>有两个主要接口用于计算路由器的下一个 state：</p>
 <ul>
-<li><p>Immutable 中的 Map 和 List 虽对应原生 Object 和 Array，但操作非常不同，比如你要用 map.get(‘key’) 而不是 map.key，array.get(0) 而不是 array[0]。另外 Immutable 每次修改都会返回新对象，也很容易忘记赋值。</p>
-</li>
-<li><p>两个 immutable 对象可以使用 === 来比较，这样是直接比较内存地址，性能最好。但即使两个对象的值是一样的，也会返回 false</p>
-</li>
+<li>history.listen 在有状态且需要在一段时间后更新UI的环境（例如 web 浏览器）下使用。此方法会立即调用它的 listener 参数一次，然后返回一个函数，这个函数必须被调用以停止监听变化。</li>
+<li>history.match 一个纯异步函数，它不会更新 history 的内部状态。这使得它非常适合服务器端环境中，在同一时间需要处理多个任务的需求。<h5 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h5>route（路由）指定了一个 component（组件） 作为UI的一部分。它应该嵌套在一个树状结构中，以便符合组件的层次。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type Route = &#123;</span><br><span class="line">  component: RouteComponent;</span><br><span class="line">  path: ?RoutePattern;</span><br><span class="line">  onEnter: ?EnterHook;</span><br><span class="line">  onLeave: ?LeaveHook;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+当 route 匹配到 URL 时会渲染一个 route 的组件。路由会在渲染时将以下属性注入组件中:<br><code>history:</code>Router 的 history<br><code>location:</code>当前的 location<br><code>params:</code>URL 的动态段,<br><code>route:</code>渲染组件的 route,<br><code>routeParams:</code>this.props.params 是直接在组件中指定 route 的一个子集。例如，如果 route 的路径是 users/:userId 而 URL 是 /users/123/portfolios/345，那么 this.props.routeParams 会是 {userId: ‘123’}，并且 this.props.params 会是 {userId: ‘123’, portfolioId: 345},<br><code>children:</code>匹配到子 route 的元素将被渲染。如果 route 有已命名的组件，那么此属性会是 undefined，并且可用的组件会被直接替换到 this.props 上</li>
 </ul>
-<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a><strong>函数</strong></h4><blockquote>
-<p>Map：键值对集合，对应于Object，ES6有专门的 Map 对象<br>  List：有序可重复的列表，对应于 Array<br>  Set：无序且不可重复的列表</p>
-</blockquote>
+<h5 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h5><p>from 必须使用绝对路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// params参数，将它们放到了路径中</span></span><br><span class="line">&lt;Redirect</span><br><span class="line">  <span class="keyword">from</span>=<span class="string">"/some/where/:id"</span></span><br><span class="line">  to=<span class="string">"/somewhere/else/:id"</span> /&gt;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// /course/123/home -&gt; /course/123/dashboard</span></span><br><span class="line">&lt;Route path=<span class="string">"course/:courseId"</span>&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"dashboard"</span> /&gt;</span><br><span class="line">  &lt;Redirect <span class="keyword">from</span>=<span class="string">"home"</span> to=<span class="string">"dashboard"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Link = &#123;</span><br><span class="line">to, <span class="comment">// string/object/func,</span></span><br><span class="line">activeClassName, <span class="comment">// 激活时的class</span></span><br><span class="line">activeStyle, <span class="comment">// 激活时的style</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>to</strong></p>
 <ul>
-<li><p><strong><em>List</em></strong><br>List为immutable数据类型, 是有序索引密集的集合，和JS中的Array相似。除List()构造方法外，List拥有两个静态方法：List.isList() 和List.of()。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 查看 List 长度 </span></span><br><span class="line"><span class="keyword">const</span> $arr1 = List([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]); </span><br><span class="line">$arr1.size</span><br><span class="line"><span class="comment">// =&gt; 3 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 添加或替换 List 实例中的元素</span></span><br><span class="line"><span class="comment">// set(index: number, value: T) </span></span><br><span class="line"><span class="comment">// 将 index 位置的元素替换为 value，即使索引越界也是安全的 </span></span><br><span class="line"><span class="keyword">const</span> $arr2 = $arr1.set(<span class="number">-1</span>, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// =&gt; [1, 2, 0] </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> $arr3 = $arr1.set(<span class="number">4</span>, <span class="number">0</span>);  </span><br><span class="line"><span class="comment">// =&gt; [ 1, 2, 3, undefined, 0 ]  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 删除 List 实例中的元素 </span></span><br><span class="line"><span class="comment">// delete(index: number)  </span></span><br><span class="line"><span class="comment">// 删除 index 位置的元素  </span></span><br><span class="line"><span class="keyword">const</span> $arr4 = $arr1.delete(<span class="number">1</span>);  </span><br><span class="line"><span class="comment">// =&gt; [ 1, 3 ]  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 向 List 插入元素 </span></span><br><span class="line"><span class="comment">// insert(index: number, value: T)  </span></span><br><span class="line"><span class="comment">// 向 index 位置插入  value  </span></span><br><span class="line"><span class="keyword">const</span> $arr5 = $arr1.insert(<span class="number">1</span>, <span class="number">1.5</span>);  </span><br><span class="line"><span class="comment">// =&gt; [ 1, 1.5, 2, 3 ]  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 清空 List </span></span><br><span class="line"><span class="comment">// clear()  </span></span><br><span class="line"><span class="keyword">const</span> $arr6 = $arr1.clear();  </span><br><span class="line"><span class="comment">// =&gt; []</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong><em>Map</em></strong><br>Map 可以使用任何类型的数据作为 Key 值，并使用 Immutable.is() 方法来比较两个 Key 值是否相等。Map集合和List集合的静态方法基本相似，Map()是 Map 类型的构造方法,行为类似于List()，用于创建新的 Map 实例，此外，还包含两个静态方法：Map.isMap()和 Map.of()。这个是针对对象而言。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. Map 实例的大小 </span></span><br><span class="line"><span class="keyword">const</span> $map1 = <span class="built_in">Map</span>(&#123; <span class="attr">a</span>: <span class="number">1</span> &#125;); </span><br><span class="line">$map1.size </span><br><span class="line"><span class="comment">// =&gt; 1 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 添加或替换 Map 实例中的元素 </span></span><br><span class="line"><span class="comment">// set(key: K, value: V) </span></span><br><span class="line"><span class="keyword">const</span> $map2 = $map1.set(<span class="string">'a'</span>, <span class="number">2</span>); </span><br><span class="line"><span class="comment">// =&gt; Map &#123; "a": 2 &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 删除元素 </span></span><br><span class="line"><span class="comment">// delete(key: K) </span></span><br><span class="line"><span class="keyword">const</span> $map3 = $map1.delete(<span class="string">'a'</span>); </span><br><span class="line"><span class="comment">// =&gt; Map &#123;&#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 清空 Map 实例 </span></span><br><span class="line"><span class="keyword">const</span> $map4 = $map1.clear(); </span><br><span class="line"><span class="comment">// =&gt; Map &#123;&#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 5. 更新 Map 元素 </span></span><br><span class="line"><span class="comment">// update(updater: (value: Map&lt;K, V&gt;) =&gt; Map&lt;K, V&gt;) </span></span><br><span class="line"><span class="comment">// update(key: K, updater: (value: V) =&gt; V) </span></span><br><span class="line"><span class="comment">// update(key: K, notSetValue: V, updater: (value: V) =&gt; V) </span></span><br><span class="line"><span class="keyword">const</span> $map5 = $map1.update(<span class="string">'a'</span>, () =&gt; (<span class="number">2</span>)) </span><br><span class="line"><span class="comment">// =&gt; Map &#123; "a": 2 &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 6. 合并 Map 实例 </span></span><br><span class="line"><span class="keyword">const</span> $map6 = <span class="built_in">Map</span>(&#123; <span class="attr">b</span>: <span class="number">2</span> &#125;); </span><br><span class="line">$map1.merge($map6); </span><br><span class="line"><span class="comment">// =&gt; Map &#123; "a": 1, "b": 2 &#125;</span></span><br></pre></td></tr></table></figure>
+<li>通过to=’xx/xx’<br><code>&lt;Link to={</code>/my/${myId}/info}&gt;点击</Link>`</li>
+<li>to=对象, 带参数跳转(pathname, query, hash, state(额外数据)).注意: 这些参数都被存放到this.props.location中<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">query: 可以传递任意类型的值，会拼接到页面的URL上，类似于get, 访问 this.props.location.query</span></span><br><span class="line"><span class="comment">state: 可以传递任意类型的数据，而且可以不以明文方式传输方式类似于post</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> to = &#123;</span><br><span class="line">  pathname:<span class="string">"/select"</span>, </span><br><span class="line">  hash:<span class="string">'#ahash'</span>, </span><br><span class="line">  </span><br><span class="line">  query: &#123;<span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">boo</span>:<span class="string">'boz'</span>&#125;,</span><br><span class="line">  state: &#123;<span class="attr">data</span>:<span class="string">'miao'</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">&lt;Link to=&#123;to&#125; activeClassName=<span class="string">"xxxx"</span>&gt;精选&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>li&gt;</span><br></pre></td></tr></table></figure></li>
+<li>to=函数，注册到路由跳转事件中，每一次路由变化，都会执行该函数，并经最新的location作为参数.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;location =&gt; (&#123; ...location, <span class="attr">query</span>: &#123; <span class="attr">name</span>: <span class="string">'ryan'</span> &#125; &#125;)&#125;&gt;Hello&lt;<span class="regexp">/Link&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="history"><a href="#history" class="headerlink" title="history"></a>history</h5>一个 history 知道如何去监听浏览器地址栏的变化， 并解析这个 URL 转化为 location 对象，然后 router 使用它匹配到路由，最后正确地渲染对应的组件。<br>history对象持续追踪着一组location。正因为拥有添加location并能够访问数组中任意location的能力，history才能被称为“历史”。除了一组location外，history也保存一个索引值，用来指向当前所对应的location。<br>对于memory history，它们被直接定义。而对于browserHistory与hashHistory，location数组与索引被浏览器所控制，并不能直接访问。<br>常用的 history 有三种形式:<br><code>browserHistory hashHistory createMemoryHistory</code></li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>memoryHistory与其他两类history最大的区别在于其维护着自己的location。当创建memoryHistory后你可以传入信息进行初始化状态。这个状态是一个location数组与当前location的索引。这与其他两类history是不同的，其他两个依赖浏览器来存储这个location数组。使用memory location最棒的体验就是你可以在能使用JavaScript的地方随意使用。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createMemoryHistory(&#123;</span><br><span class="line">  initialEntries: [<span class="string">'/'</span>, <span class="string">'/next'</span>, <span class="string">'/last'</span>],</span><br><span class="line">  initialIndex: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>browserHistory和hashHistory区别是URL创建location的方式。browserHistory使用完整URL，而hashHistory只使用在第一个hash后的那部分URL.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提供如下URL</span></span><br><span class="line">url = <span class="string">'http://www.example.com/this/is/the/path?key=value#hash'</span></span><br><span class="line"><span class="comment">// browserHistory创建的location对象:</span></span><br><span class="line">&#123;</span><br><span class="line">  pathname: <span class="string">'/this/is/the/path'</span>,</span><br><span class="line">  search: <span class="string">'?key=value'</span>,</span><br><span class="line">  hash: <span class="string">'#hash'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//hashHistory创建的location对象:</span></span><br><span class="line">&#123;</span><br><span class="line">  pathname: <span class="string">'hash'</span>,</span><br><span class="line">  search: <span class="string">''</span>,</span><br><span class="line">  hash: <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+history在react中的使用：<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; browserHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></span><br><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">  &lt;IndexRoute component=&#123;Home&#125; /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"invoices"</span> component=&#123;Invoice&#125; /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"accounts"</span> component=&#123;Account&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h5>location: 是history的一个重要属性。你需要从 history 包导入它们，而不是 react-router。location对象反映了当前应用所在的”位置”，其包含了pathname，search，hash这种由’URL’派生出的属性。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">type Location = &#123;</span><br><span class="line">  pathname: Pathname;</span><br><span class="line">  search: QueryString;</span><br><span class="line">  query: Query;</span><br><span class="line">  state: LocationState;</span><br><span class="line">  action: Action;</span><br><span class="line">  key: LocationKey;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="Location属性"><a href="#Location属性" class="headerlink" title="Location属性"></a>Location属性</h5><code>http://example.com/the/path?the=query</code><br><code>path:</code> <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a><br><code>pathname:</code> the/path<br><code>queryString:</code> ?the=query</li>
+</ul>
+<p><strong>Path</strong></p>
+<p><code>type Path = Pathname + QueryString;</code><br>path(路径): 代表URL的路径。</p>
+<p><strong>Pathname</strong></p>
+<p><code>type Pathname = string;</code><br>pathname(路径名): 是URL中用于描述分层路径的一部分，包括最前的 /。比如，在 <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a> 这个URL中，/the/path 就是 pathname。它和浏览器中的 window.location.pathname 是同样的意思。</p>
+<p><strong>QueryString</strong></p>
+<p><code>type QueryString = string;</code><br>QueryString: 是URL中紧跟在 pathname后面的一部分，包括最前的’?’。比如，在 <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a> 这个URL中，?the=query 就是 query string。它和浏览器中的 window.loaction.search 是同样的意思。</p>
+<p><strong>Query</strong></p>
+<p><code>type Query = Object;</code><br>query 是QueryString解析后的版本。</p>
+<p><strong>Params</strong></p>
+<p><code>type Params = Object;</code><br>params指的是由URL中的 pathname经过解析之后生成的键/值对。它的值在通常情况下是字符串类型，只有当一个键对应了多个值时，才可以是数组。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E5%8E%9F%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/31/js%E5%8E%9F%E5%9E%8B/" class="post-title-link" itemprop="url">js原型</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 17:59:10 / 修改时间：18:00:11" itemprop="dateCreated datePublished" datetime="2019-10-31T17:59:10+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>原型继承</strong><br>JavaScript不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程<br>JavaScript的原型链和Java的Class区别就在，它没有“Class”的概念，所有对象都是实例，所谓继承关系不过是把一个对象的原型指向另一个对象而已。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Student = &#123;</span><br><span class="line">    name: <span class="string">'Robot'</span>,</span><br><span class="line">    height: <span class="number">1.2</span>,</span><br><span class="line">    run: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' is running...'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> xiaoming = &#123;</span><br><span class="line">    name: <span class="string">'小明'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">xiaoming.__proto__ = Student;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>JS object转换成Immutable Maps时， JS对象的属性永远都是字符串</p>
+<p>如果<code>xiaoming._proto_=Teacher</code>,那小明就是一名老师，不再有run()方法。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="number">1</span>: <span class="string">"one"</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> map = <span class="built_in">Map</span>(obj);</span><br><span class="line">map.get(<span class="string">"1"</span>); <span class="comment">// "one"</span></span><br><span class="line">map.get(<span class="number">1</span>);   <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-<h4 id="api"><a href="#api" class="headerlink" title="api"></a><strong>api</strong></h4></li>
-<li><p><strong><em>is</em></strong><br>Immutable.is 来做两个对象的值比较。Immutable.is 比较的是两个对象的 hashCode 或 valueOf（对于 JavaScript 对象）。由于 immutable 内部使用了 Trie 数据结构来存储，只要两个对象的 hashCode 相等，值就是一样的。这样的算法避免了深度遍历比较，性能非常好。判断两个immutable数据是否一致.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map1 = Immutable.Map(&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">1</span>, <span class="attr">c</span>:<span class="number">1</span>&#125;);</span><br><span class="line"><span class="keyword">let</span> map2 = Immutable.Map(&#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">1</span>, <span class="attr">c</span>:<span class="number">1</span>&#125;);</span><br><span class="line">map1 === map2; <span class="comment">//false</span></span><br><span class="line">Immutable.is(map1, map2); <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong><em>fromJS</em></strong><br>将 JavaScript Object和 Array 深度转换为 Immutable Map 和 List(原生js转换为immutableData)。fromJS() 的使用方式类似于 JSON.parse()，接收两个参数：json 数据和 reviver 函数。reviver 为一个可选参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Immutable.fromJS([<span class="number">1</span>,<span class="number">2</span>]) <span class="comment">// immutable的 list</span></span><br><span class="line">Immutable.fromJS(&#123;<span class="attr">a</span>: <span class="number">1</span>&#125;) <span class="comment">// immutable的 map</span></span><br></pre></td></tr></table></figure></li>
-<li><p>从immutableData 回到 JavaScript 对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">immutableData.toJS()</span><br></pre></td></tr></table></figure></li>
-<li><p>判断是不是map或List</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Immutable.Map.isMap(x)</span><br><span class="line">Immutable.Map.isList(x)</span><br></pre></td></tr></table></figure></li>
-<li><p>对象合并(注意是同个类型)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">immutableMaB = immutableMapA.merge(immutableMaC)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Map的增删查改查</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里的immutableData不是唯一的，根据实际确定</span></span><br><span class="line">immutableData.get(<span class="string">'a'</span>) <span class="comment">// 得到1</span></span><br><span class="line">immutableData.getIn([<span class="string">'a'</span>, <span class="string">'b'</span>]) </span><br><span class="line"><span class="comment">// &#123;a:&#123;b:2&#125;&#125; 得到2，访问深层次的key</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//增和改(注意不会改变原来的值，返回新的值)</span></span><br><span class="line">immutableData.set(<span class="string">'a'</span>, <span class="number">2</span>) <span class="comment">// &#123;a:1&#125; 得到1。</span></span><br><span class="line">immutableData.setIn([<span class="string">'a'</span>, <span class="string">'b'</span>], <span class="number">3</span>)</span><br><span class="line">immutableData.update(<span class="string">'a'</span>, x =&gt; x+<span class="number">1</span>)</span><br><span class="line">immutableData.updateIn([<span class="string">'a'</span>, <span class="string">'b'</span>], x =&gt; x+<span class="number">1</span>)</span><br><span class="line"><span class="comment">//删</span></span><br><span class="line">immutableData.delete(<span class="string">'a'</span>)</span><br><span class="line">immutableData.deleteIn([<span class="string">'a'</span>, <span class="string">'b'</span>])</span><br></pre></td></tr></table></figure></li>
-<li><p>List的增删查改<br>如同Map，不过参数变为数字索引。<br>比如immutableList.set(1, 2)</p>
-</li>
-</ul>
-<h4 id="与-React-搭配使用，Pure-Render"><a href="#与-React-搭配使用，Pure-Render" class="headerlink" title="与 React 搭配使用，Pure Render"></a><strong>与 React 搭配使用，Pure Render</strong></h4><p>React 做性能优化避免重复渲染的操作就是使用 shouldComponentUpdate()，但它默认返回 true，即始终会执行 render() 方法，然后做 Virtual DOM 比较，并得出是否需要做真实 DOM 更新，这里往往会带来很多无必要的渲染并成为性能瓶颈。</p>
-<p>当然我们也可以在 shouldComponentUpdate() 中使用使用 deepCopy 和 deepCompare 来避免无必要的 render()，但 deepCopy 和 deepCompare 一般都是非常耗性能的。</p>
-<p>Immutable 则提供了简洁高效的判断数据是否变化的方法，只需 === 和 is 比较就能知道是否需要执行 render()，而这个操作几乎 0 成本，所以可以极大提高性能。修改后的 shouldComponentUpdate 是这样的：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;js&#125; <span class="keyword">from</span> <span class="string">'Immutable'</span></span><br><span class="line">shouldComponentUpdate(nextProps, Immutable) &#123;</span><br><span class="line">  <span class="keyword">return</span> !(<span class="keyword">this</span>.props === nextProps || is(<span class="keyword">this</span>.props, nextProps)) ||</span><br><span class="line">         !(<span class="keyword">this</span>.state === nextState || is(<span class="keyword">this</span>.state, nextState));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>请注意，上述代码仅用于演示目的。在编写JavaScript代码时，不要直接用obj.<strong>proto</strong>去改变一个对象的原型，并且，低版本的IE也无法使用<strong>proto</strong>。Object.create()方法可以传入一个原型对象，并创建一个基于该原型的新对象，但是新对象什么属性都没有，因此，我们可以编写一个函数来创建xiaoming：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStudent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 基于Student原型创建一个新对象:</span></span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">Object</span>.create(Student);</span><br><span class="line">    <span class="comment">// 初始化新对象:</span></span><br><span class="line">    s.name = name;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> xiaoming = createStudent(<span class="string">'小明'</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -743,6 +1000,9 @@
   </div>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -787,7 +1047,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -800,7 +1060,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Router： 一个history对象router（路由器）是一个 history 对象（类似于 web 浏览器中的 window.history），用于改变 URL 或者监听 URL 的变化。 123456789type Router = &amp;#123;  transitionTo: (location: Location) =&amp;gt; void;  pushState: (state: ?Loc">
+<meta name="keywords" content="React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Router">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;React%20Router&#x2F;index.html">
+<meta property="og:site_name" content="李涵的博客">
+<meta property="og:description" content="Router： 一个history对象router（路由器）是一个 history 对象（类似于 web 浏览器中的 window.history），用于改变 URL 或者监听 URL 的变化。 123456789type Router = &amp;#123;  transitionTo: (location: Location) =&amp;gt; void;  pushState: (state: ?Loc">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-31T10:01:20.174Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/10/31/React%20Router/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>React Router | 李涵的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">李涵的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/BZSZ" class="github-corner" title="在GitHub上关注我" aria-label="在GitHub上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/React%20Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+      <meta itemprop="name" content="李涵">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="李涵的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          React Router
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-31 18:00:28 / 修改时间：18:01:20" itemprop="dateCreated datePublished" datetime="2019-10-31T18:00:28+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="Router：-一个history对象"><a href="#Router：-一个history对象" class="headerlink" title="Router： 一个history对象"></a>Router： 一个history对象</h5><p>router（路由器）是一个 history 对象（类似于 web 浏览器中的 window.history），用于改变 URL 或者监听 URL 的变化。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">type Router = &#123;</span><br><span class="line">  transitionTo: <span class="function">(<span class="params">location: Location</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  pushState: <span class="function">(<span class="params">state: ?LocationState, pathname: Pathname | Path, query?: Query</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  replaceState: <span class="function">(<span class="params">state: ?LocationState, pathname: Pathname | Path, query?: Query</span>) =&gt;</span> <span class="keyword">void</span>;</span><br><span class="line">  go(n: <span class="built_in">Number</span>) =&gt; <span class="keyword">void</span>;</span><br><span class="line">  listen(listener: RouterListener) =&gt; <span class="built_in">Function</span>;</span><br><span class="line">  match(location: Location, <span class="attr">callback</span>: RouterListener) =&gt; <span class="keyword">void</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 访问： this.router.history.go()</span></span><br></pre></td></tr></table></figure>
+<p>有两个主要接口用于计算路由器的下一个 state：</p>
+<ul>
+<li>history.listen 在有状态且需要在一段时间后更新UI的环境（例如 web 浏览器）下使用。此方法会立即调用它的 listener 参数一次，然后返回一个函数，这个函数必须被调用以停止监听变化。</li>
+<li>history.match 一个纯异步函数，它不会更新 history 的内部状态。这使得它非常适合服务器端环境中，在同一时间需要处理多个任务的需求。<h5 id="Route"><a href="#Route" class="headerlink" title="Route"></a>Route</h5>route（路由）指定了一个 component（组件） 作为UI的一部分。它应该嵌套在一个树状结构中，以便符合组件的层次。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">type Route = &#123;</span><br><span class="line">  component: RouteComponent;</span><br><span class="line">  path: ?RoutePattern;</span><br><span class="line">  onEnter: ?EnterHook;</span><br><span class="line">  onLeave: ?LeaveHook;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+当 route 匹配到 URL 时会渲染一个 route 的组件。路由会在渲染时将以下属性注入组件中:<br><code>history:</code>Router 的 history<br><code>location:</code>当前的 location<br><code>params:</code>URL 的动态段,<br><code>route:</code>渲染组件的 route,<br><code>routeParams:</code>this.props.params 是直接在组件中指定 route 的一个子集。例如，如果 route 的路径是 users/:userId 而 URL 是 /users/123/portfolios/345，那么 this.props.routeParams 会是 {userId: ‘123’}，并且 this.props.params 会是 {userId: ‘123’, portfolioId: 345},<br><code>children:</code>匹配到子 route 的元素将被渲染。如果 route 有已命名的组件，那么此属性会是 undefined，并且可用的组件会被直接替换到 this.props 上</li>
+</ul>
+<h5 id="Redirect"><a href="#Redirect" class="headerlink" title="Redirect"></a>Redirect</h5><p>from 必须使用绝对路径</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// params参数，将它们放到了路径中</span></span><br><span class="line">&lt;Redirect</span><br><span class="line">  <span class="keyword">from</span>=<span class="string">"/some/where/:id"</span></span><br><span class="line">  to=<span class="string">"/somewhere/else/:id"</span> /&gt;</span><br><span class="line">  </span><br><span class="line"><span class="comment">// /course/123/home -&gt; /course/123/dashboard</span></span><br><span class="line">&lt;Route path=<span class="string">"course/:courseId"</span>&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"dashboard"</span> /&gt;</span><br><span class="line">  &lt;Redirect <span class="keyword">from</span>=<span class="string">"home"</span> to=<span class="string">"dashboard"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/Route&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Link = &#123;</span><br><span class="line">to, <span class="comment">// string/object/func,</span></span><br><span class="line">activeClassName, <span class="comment">// 激活时的class</span></span><br><span class="line">activeStyle, <span class="comment">// 激活时的style</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>to</strong></p>
+<ul>
+<li>通过to=’xx/xx’<br><code>&lt;Link to={</code>/my/${myId}/info}&gt;点击</Link>`</li>
+<li>to=对象, 带参数跳转(pathname, query, hash, state(额外数据)).注意: 这些参数都被存放到this.props.location中<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">query: 可以传递任意类型的值，会拼接到页面的URL上，类似于get, 访问 this.props.location.query</span></span><br><span class="line"><span class="comment">state: 可以传递任意类型的数据，而且可以不以明文方式传输方式类似于post</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> to = &#123;</span><br><span class="line">  pathname:<span class="string">"/select"</span>, </span><br><span class="line">  hash:<span class="string">'#ahash'</span>, </span><br><span class="line">  </span><br><span class="line">  query: &#123;<span class="attr">foo</span>: <span class="string">'bar'</span>, <span class="attr">boo</span>:<span class="string">'boz'</span>&#125;,</span><br><span class="line">  state: &#123;<span class="attr">data</span>:<span class="string">'miao'</span>&#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;li&gt;</span><br><span class="line">&lt;Link to=&#123;to&#125; activeClassName=<span class="string">"xxxx"</span>&gt;精选&lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>li&gt;</span><br></pre></td></tr></table></figure></li>
+<li>to=函数，注册到路由跳转事件中，每一次路由变化，都会执行该函数，并经最新的location作为参数.<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Link to=&#123;location =&gt; (&#123; ...location, <span class="attr">query</span>: &#123; <span class="attr">name</span>: <span class="string">'ryan'</span> &#125; &#125;)&#125;&gt;Hello&lt;<span class="regexp">/Link&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="history"><a href="#history" class="headerlink" title="history"></a>history</h5>一个 history 知道如何去监听浏览器地址栏的变化， 并解析这个 URL 转化为 location 对象，然后 router 使用它匹配到路由，最后正确地渲染对应的组件。<br>history对象持续追踪着一组location。正因为拥有添加location并能够访问数组中任意location的能力，history才能被称为“历史”。除了一组location外，history也保存一个索引值，用来指向当前所对应的location。<br>对于memory history，它们被直接定义。而对于browserHistory与hashHistory，location数组与索引被浏览器所控制，并不能直接访问。<br>常用的 history 有三种形式:<br><code>browserHistory hashHistory createMemoryHistory</code></li>
+</ul>
+<p>区别：</p>
+<ul>
+<li>memoryHistory与其他两类history最大的区别在于其维护着自己的location。当创建memoryHistory后你可以传入信息进行初始化状态。这个状态是一个location数组与当前location的索引。这与其他两类history是不同的，其他两个依赖浏览器来存储这个location数组。使用memory location最棒的体验就是你可以在能使用JavaScript的地方随意使用。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> history = createMemoryHistory(&#123;</span><br><span class="line">  initialEntries: [<span class="string">'/'</span>, <span class="string">'/next'</span>, <span class="string">'/last'</span>],</span><br><span class="line">  initialIndex: <span class="number">0</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li>browserHistory和hashHistory区别是URL创建location的方式。browserHistory使用完整URL，而hashHistory只使用在第一个hash后的那部分URL.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提供如下URL</span></span><br><span class="line">url = <span class="string">'http://www.example.com/this/is/the/path?key=value#hash'</span></span><br><span class="line"><span class="comment">// browserHistory创建的location对象:</span></span><br><span class="line">&#123;</span><br><span class="line">  pathname: <span class="string">'/this/is/the/path'</span>,</span><br><span class="line">  search: <span class="string">'?key=value'</span>,</span><br><span class="line">  hash: <span class="string">'#hash'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//hashHistory创建的location对象:</span></span><br><span class="line">&#123;</span><br><span class="line">  pathname: <span class="string">'hash'</span>,</span><br><span class="line">  search: <span class="string">''</span>,</span><br><span class="line">  hash: <span class="string">''</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+history在react中的使用：<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; browserHistory &#125; <span class="keyword">from</span> <span class="string">'react-router'</span></span><br><span class="line">&lt;Router history=&#123;browserHistory&#125;&gt;</span><br><span class="line">  &lt;IndexRoute component=&#123;Home&#125; /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"invoices"</span> component=&#123;Invoice&#125; /&gt;</span><br><span class="line">  &lt;Route path=<span class="string">"accounts"</span> component=&#123;Account&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/Router&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h5>location: 是history的一个重要属性。你需要从 history 包导入它们，而不是 react-router。location对象反映了当前应用所在的”位置”，其包含了pathname，search，hash这种由’URL’派生出的属性。<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">type Location = &#123;</span><br><span class="line">  pathname: Pathname;</span><br><span class="line">  search: QueryString;</span><br><span class="line">  query: Query;</span><br><span class="line">  state: LocationState;</span><br><span class="line">  action: Action;</span><br><span class="line">  key: LocationKey;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="Location属性"><a href="#Location属性" class="headerlink" title="Location属性"></a>Location属性</h5><code>http://example.com/the/path?the=query</code><br><code>path:</code> <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a><br><code>pathname:</code> the/path<br><code>queryString:</code> ?the=query</li>
+</ul>
+<p><strong>Path</strong></p>
+<p><code>type Path = Pathname + QueryString;</code><br>path(路径): 代表URL的路径。</p>
+<p><strong>Pathname</strong></p>
+<p><code>type Pathname = string;</code><br>pathname(路径名): 是URL中用于描述分层路径的一部分，包括最前的 /。比如，在 <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a> 这个URL中，/the/path 就是 pathname。它和浏览器中的 window.location.pathname 是同样的意思。</p>
+<p><strong>QueryString</strong></p>
+<p><code>type QueryString = string;</code><br>QueryString: 是URL中紧跟在 pathname后面的一部分，包括最前的’?’。比如，在 <a href="http://example.com/the/path?the=query" target="_blank" rel="noopener">http://example.com/the/path?the=query</a> 这个URL中，?the=query 就是 query string。它和浏览器中的 window.loaction.search 是同样的意思。</p>
+<p><strong>Query</strong></p>
+<p><code>type Query = Object;</code><br>query 是QueryString解析后的版本。</p>
+<p><strong>Params</strong></p>
+<p><code>type Params = Object;</code><br>params指的是由URL中的 pathname经过解析之后生成的键/值对。它的值在通常情况下是字符串类型，只有当一个键对应了多个值时，才可以是数组。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/React/" rel="tag"># React</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10/31/js%E5%8E%9F%E5%9E%8B/" rel="next" title="js原型">
+                  <i class="fa fa-chevron-left"></i> js原型
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/31/antd%20-%20Form/" rel="prev" title="antd - Form">
+                  antd - Form <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Router：-一个history对象"><span class="nav-number">1.</span> <span class="nav-text">Router： 一个history对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Route"><span class="nav-number">2.</span> <span class="nav-text">Route</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redirect"><span class="nav-number">3.</span> <span class="nav-text">Redirect</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Link"><span class="nav-number">4.</span> <span class="nav-text">Link</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#history"><span class="nav-number">5.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Location"><span class="nav-number">6.</span> <span class="nav-text">Location</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Location属性"><span class="nav-number">7.</span> <span class="nav-text">Location属性</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="李涵"
+    src="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
+  <p class="site-author-name" itemprop="name">李涵</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/BZSZ" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;BZSZ" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">李涵</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.2
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

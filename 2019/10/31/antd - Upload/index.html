@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="数组去重 123456var r,    arr = [&amp;apos;apple&amp;apos;, &amp;apos;strawberry&amp;apos;, &amp;apos;banana&amp;apos;, &amp;apos;pear&amp;apos;, &amp;apos;apple&amp;apos;, &amp;apos;orange&amp;apos;, &amp;apos;orange&amp;apos;, &amp;apos;strawberry&amp;apos;];r = arr.filter((element, index, self) =&amp;gt; &amp;#123;    return self.indexOf(element) === i">
-<meta name="keywords" content="Array">
+  <meta name="description" content="Upload使用  props 12345678910111213141516const uploadProps = &amp;#123;  accept: &amp;apos;xxxxxx&amp;apos;,  showUploadList: false,  beforeUpload: this.handleUpload,  customRequest: this.customRequest,&amp;#125;;handleUpload =">
+<meta name="keywords" content="React,Antd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组去重">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D&#x2F;index.html">
+<meta property="og:title" content="antd - Upload">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;antd%20-%20Upload&#x2F;index.html">
 <meta property="og:site_name" content="李涵的博客">
-<meta property="og:description" content="数组去重 123456var r,    arr = [&amp;apos;apple&amp;apos;, &amp;apos;strawberry&amp;apos;, &amp;apos;banana&amp;apos;, &amp;apos;pear&amp;apos;, &amp;apos;apple&amp;apos;, &amp;apos;orange&amp;apos;, &amp;apos;orange&amp;apos;, &amp;apos;strawberry&amp;apos;];r = arr.filter((element, index, self) =&amp;gt; &amp;#123;    return self.indexOf(element) === i">
+<meta property="og:description" content="Upload使用  props 12345678910111213141516const uploadProps = &amp;#123;  accept: &amp;apos;xxxxxx&amp;apos;,  showUploadList: false,  beforeUpload: this.handleUpload,  customRequest: this.customRequest,&amp;#125;;handleUpload =">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-31T08:41:20.528Z">
+<meta property="og:updated_time" content="2019-10-31T10:04:44.971Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/10/31/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+<link rel="canonical" href="http://yoursite.com/2019/10/31/antd%20-%20Upload/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>数组去重 | 李涵的博客</title>
+  <title>antd - Upload | 李涵的博客</title>
   
 
 
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/31/antd%20-%20Upload/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://static-workspace.oss-cn-hangzhou.aliyuncs.com/blog/lihan.jpeg">
@@ -199,7 +199,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数组去重
+          antd - Upload
         </h1>
 
         <div class="post-meta">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-10-31 16:39:37 / 修改时间：16:41:20" itemprop="dateCreated datePublished" datetime="2019-10-31T16:39:37+08:00">2019-10-31</time>
+              <time title="创建时间：2019-10-31 18:04:17 / 修改时间：18:04:44" itemprop="dateCreated datePublished" datetime="2019-10-31T18:04:17+08:00">2019-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,19 +235,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>数组去重</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> r,</span><br><span class="line">    arr = [<span class="string">'apple'</span>, <span class="string">'strawberry'</span>, <span class="string">'banana'</span>, <span class="string">'pear'</span>, <span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'orange'</span>, <span class="string">'strawberry'</span>];</span><br><span class="line">r = arr.filter(<span class="function">(<span class="params">element, index, self</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> self.indexOf(element) === index;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r.toString());</span><br></pre></td></tr></table></figure>
-<p><strong>删除空字符</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'A'</span>, <span class="string">''</span>, <span class="string">'B'</span>, <span class="literal">null</span>, <span class="literal">undefined</span>, <span class="string">'C'</span>, <span class="string">'  '</span>];</span><br><span class="line"><span class="keyword">var</span> r = arr.filter(<span class="function">(<span class="params">s</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> s &amp;&amp; s.trim(); <span class="comment">// IE9以下的版本没有trim()方法</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(r.toString());</span><br><span class="line"><span class="comment">// ['A', 'B', 'C']</span></span><br></pre></td></tr></table></figure>
-<p><strong>数字转字符串</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>];</span><br><span class="line">arr.map(<span class="built_in">String</span>);</span><br><span class="line"><span class="comment">// ['1', '2', '3', '4', '5', '6', '7', '8', '9']</span></span><br></pre></td></tr></table></figure>
-<p><strong>字符串转数字</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>];</span><br><span class="line"><span class="keyword">let</span> r = arr.map(<span class="function"><span class="params">x</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> x.charCodeAt() - <span class="string">'0'</span>.charCodeAt();</span><br><span class="line">&#125;);</span><br><span class="line">r; <span class="comment">// [1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<p><strong>数组排序</strong></p>
-<blockquote>
-<p>sort: 随机选取的a,b两个值通常情况下，都是a的值比b小，<br>  排序规则是根据返回值，小于0则升序, 大于0则降序，<br>  第一参数a， 第二参数b ——  a-b升序 b-a降序。<br>  会对当前Array修改</p>
+        <blockquote>
+<p>Upload使用</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="comment">// 升序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [1, 2, 10, 20]</span></span><br><span class="line"><span class="comment">// 降序</span></span><br><span class="line">arr.sort(<span class="function">(<span class="params">x, y</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">// [20, 10, 2, 1]</span></span><br></pre></td></tr></table></figure>
+<p><strong>props</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> uploadProps = &#123;</span><br><span class="line">  accept: <span class="string">'xxxxxx'</span>,</span><br><span class="line">  showUploadList: <span class="literal">false</span>,</span><br><span class="line">  beforeUpload: <span class="keyword">this</span>.handleUpload,</span><br><span class="line">  customRequest: <span class="keyword">this</span>.customRequest,</span><br><span class="line">&#125;;</span><br><span class="line">handleUpload = <span class="keyword">async</span> (file) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!file) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">const</span> formData = <span class="keyword">new</span> FormData();</span><br><span class="line">  formData.append(<span class="string">'file'</span>, file);</span><br><span class="line">  <span class="keyword">await</span> <span class="keyword">this</span>.props.dispatch(&#123; <span class="attr">type</span>:   <span class="string">'chargeAdd/uploadExcel'</span>, <span class="attr">payload</span>: formData &#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// props中没有action 就需要定义customRequest函数</span></span><br><span class="line">customRequest = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>beforeUpload 返回false, 如果设置action会请求action, 未设置会请求本域名</p>
+</blockquote>
+<p>使用customRequest, 通过覆盖默认的上传行为，可以自定义自己的上传实现</p>
+<blockquote>
+<p>使用customRequest，点击取消报错：rc-upload reqs[uid].abort is not a function</p>
+</blockquote>
+<p>customRequest 不支持async函数<br><strong>参考文档</strong><br><code>https://github.com/react-component/upload/issues/89</code><br><code>https://github.com/ant-design/ant-design/issues/10122</code></p>
+
     </div>
 
     
@@ -256,21 +257,25 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Array/" rel="tag"># Array</a>
+              <a href="/tags/React/" rel="tag"># React</a>
+              <a href="/tags/Antd/" rel="tag"># Antd</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/31/react%E4%B8%ADonClick%E4%BA%8B%E4%BB%B6/" rel="next" title="react中onClick事件">
-                  <i class="fa fa-chevron-left"></i> react中onClick事件
+                <a href="/2019/10/31/dva%E5%9F%BA%E7%A1%80/" rel="next" title="dva基础">
+                  <i class="fa fa-chevron-left"></i> dva基础
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/31/antd%20-%20Table/" rel="prev" title="antd - Table">
+                  antd - Table <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -324,7 +329,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -337,7 +342,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
